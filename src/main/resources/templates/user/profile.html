@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#user-profile},~{::title}, ~{::script})}">
+<head>
+   <title th:text="${loggedInUser.name}+ ' SCM'">Profile Page</title>
+</head>
+<body>
+    <div data-th-replace="navbar :: navbar"></div>
+    
+    <div id="user-profile" 
+    class="sm:pl-64 pt-44 flex flex-col justify-center items-center  h-1000px ">
+            <!-- user logged in - sidebar -->
+
+<div th:if="${loggedInUser}">
+    <div data-th-replace="~{user/user-sidebar :: sidebar}"></div>
+</div>
+
+
+    <!-- user profile div -->
+   <div class="bg-white dark:bg-gray-800  flex flex-col justify-center items-center  mb-5 ">
+   
+          <!-- Profile Image -->
+          <div class="relative">
+            <img th:src="@{${loggedInUser.profilePic}}" alt="Profile Picture" class="max-w-xl h-36 mt-6 object-cover rounded-full">
+           
+          </div>
+      
+          <!-- User Info -->
+          <div class="p-6 min-w-96 ">
+            <h2 id="name" class=" text-2xl font-semibold text-gray-800 dark:text-gray-100 "th:text="${loggedInUser.name}">John Doe</h2>
+            <!-- <p id="userId" class="text-gray-500 text-sm">User ID: 12345</p> -->
+            <p id="email" class="mt-2 text-lg text-gray-700 dark:text-gray-500" th:text="${loggedInUser.eMail}" >Email: john.doe@example.com</p>
+            <p id="phoneNo" class="mt-1 text-lg text-gray-700 dark:text-gray-500" th:text="${loggedInUser.phoneNo}">Phone: +1234567890</p>
+            <div id="info" class="mt-4  text-gray-700 text-lg dark:text-gray-500" th:text="${loggedInUser.info}">
+              <p>About Me: This is a short description about the user. It gives a brief overview of their role, interests, or any other relevant information.</p>
+            </div>
+          </div>
+      
+          <!-- Contact Button -->
+          <!-- <div class="px-6 pb-6">
+            <a href="mailto:john.doe@example.com" class="block max-w-sm text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Contact</a>
+          </div> -->
+        </div>
+     
+   </div>
+   
+
+    
+
+
+    <script>
+        console.log("Profile page") ;
+    </script>
+     <script th:src="@{'/js/user.js'}"></script>
+</body>
+</html>

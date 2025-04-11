@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{:: .service_contents},~{:: title},~{::script})}">
+<head>
+   <title>Services Page</title>
+</head>
+<body>
+    
+    <div class="service_contents text-center">
+        <div th:replace="~{messages::messagebox}"></div>  <!-- alert message here -->
+
+        <h1 class="text-5xl">Something went wrong</h1>
+        <h2>Click the verification link sent to your email</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, perferendis.</p>
+
+    </div>
+
+    <script>
+        console.log("services page") ;
+    </script>
+
+</body>
+</html>

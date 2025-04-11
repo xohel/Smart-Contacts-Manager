@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{:: .service_contents},~{:: title},~{::script})}">
+<head>
+   <title>Services Page</title>
+</head>
+<body>
+    
+    <div class="service_contents text-center w-1/2 mx-auto ">
+        <div th:replace="~{messages::messagebox}"></div>  <!-- alert message here -->
+
+        <h1 class="text-5xl">Congratulations! Your Email is verified</h1>
+        <h2>Start adding contacts now!</h2>
+        <a href="/login"><button class=" mt-3 text-center rounded-xl bg-gray-700 dark:bg-gray-500 text-blue-300  p-3 text-2xl hover:bg-gray-900 dark:hover:bg-gray-700"
+        >
+            Login
+        </button></a>
+    </div>
+
+    <script>
+        console.log("services page") ;
+    </script>
+
+</body>
+</html>

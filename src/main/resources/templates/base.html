@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="light" lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="parent(content, title, script)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">SCM</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" data-th-href="@{'/CSS/output.css'}" />
+    <link rel="stylesheet" data-th-href="@{'CSS/style.css'}">
+</head>
+<body class=" dark:bg-gray-900 bg-gray-50 dark:text-white">
+    <!-- user logged in - navbar header -->
+<div th:if="${loggedInUser}">
+    <div data-th-replace="~{user/user_navbar :: user-navbar}"></div>
+</div>
+<!-- user logged out - navbar -->
+<div th:unless="${loggedInUser}">
+    <div data-th-replace="~{navbar :: navbar}"></div>
+</div>
+
+
+
+    <!-- main content receving dynamically -->
+    <div class="p-4 w-full h-screen dark:bg-gray-900">
+    
+   <section data-th-replace="${content}"> </section>
+
+
+    </div>
+
+    <!-- <footer class="p-4 to-blue-400 pl-64 ">
+        <h6>Smart Contacts Manager - Spring Boot project by Sohel</h6>
+    </footer> -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script data-th-src="@{/js/script.js}"></script>
+    <th:block data-th-replace="${script}"></th:block>
+</body>
+</html>
